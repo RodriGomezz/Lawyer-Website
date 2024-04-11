@@ -1,0 +1,89 @@
+---
+import Container from "@components/container.astro";
+import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
+import { Icon } from "astro-icon";
+
+const menuitems = [
+  {
+    title: "Home",
+    path: "/",
+  },
+  {
+    title: "About",
+    path: "/about",
+  },
+  {
+    title: "Blog",
+    path: "/blog",
+  },
+  {
+    title: "Contact",
+    path: "/contact",
+  },
+];
+---
+
+<Container class:list={"relative"}>
+  <header>
+    <div class="flex flex-col lg:flex-row justify-between items-center my-3">
+      <Astronav>
+        <div class="flex w-full lg:w-auto items-center justify-between">
+          <p class="animate-fade-right font-bold h-16 flex items-center">
+            Logo
+          </p>
+          <!-- <a href="/" class="text-lg">
+            <img class="h-16 animate-fade-right" src="" alt="logo" />
+          </a> -->
+          <div class="block lg:hidden">
+            <MenuIcon class="w-4 h-4 text-gray-800" />
+          </div>
+        </div>
+        <MenuItems
+          class="hidden w-screen lg:w-auto py-2 lg:flex lg:mt-0 max-[1023px]:bg-white flex items-center justify-center">
+          <ul
+            class="navbar flex flex-col lg:flex-row lg:gap-3 animate-fade-down">
+            {
+              menuitems.map((item) => (
+                <li>
+                  <a
+                    href={item.path}
+                    class="flex lg:px-3 py-2 items-center text-gray-700 hover:text-gray-900">
+                    <span> {item.title}</span>
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </MenuItems>
+      </Astronav>
+      <div
+        class="flex flex-col items-end animate-fade-left font-bold max-[1023px]:hidden">
+        <div>Call Us Now</div>
+        <div
+          class="flex items-center justify-center mt-2 space-x-2 text-red-600">
+          <Icon class="text-red-600 w-4 h-4" name="uil:phone" /><a
+            href="tel:+1 214-366-9150">+1 000-000-000</a
+          >
+        </div>
+      </div>
+    </div>
+  </header>
+</Container>
+
+<style>
+  .navbar a.active {
+    /* border-bottom: 1px solid #dc2626; */
+    color: #dc2626;
+  }
+</style>
+
+<script>
+  const nav = document.querySelector(".navbar");
+  const navLinks = nav.querySelectorAll("a");
+  const currentURL = window.location.href;
+  navLinks.forEach((link) => {
+    if (link.href === currentURL) {
+      link.classList.add("active");
+    }
+  });
+</script>

@@ -1,0 +1,49 @@
+---
+import { Icon } from "astro-icon";
+import Link from "./ui/link.astro";
+---
+
+<footer
+  class="absolute w-screen left-0 pt-5"
+  x-data="{ shown: false }"
+  x-intersect="shown = true">
+  <div
+    class="flex max-[800px]:flex-col mt-20 animate-fade animate-ease-out animate-delay-300"
+    x-show="shown">
+    <iframe
+      class="w-9/12 max-[800px]:w-full"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31628.949966959393!2d-122.67827360479008!3d45.51752775659748!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5495a0b1f80bb091%3A0x360ed363c9e63795!2sUniversidad%20Estatal%20de%20Portland!5e0!3m2!1ses-419!2suy!4v1712805449679!5m2!1ses-419!2suy"
+      height="500"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+    <div
+      class="flex flex-col items-center justify-center w-3/12 max-[800px]:w-full max-[800px]:py-20 bg-slate-700 text-white">
+      <h1 class="flex justify-center text-2xl font-bold">Contact</h1>
+      <div class="mt-5 text-white">
+        <div class="flex items-center justify-center mt-2 space-x-2">
+          <Icon class="w-4 h-4" name="uil:map-marker" />
+          <span>1825 SW Broadway, Portland, OR </span>
+        </div><div class="flex items-center justify-center mt-2 space-x-2">
+          <Icon class="w-4 h-4" name="uil:envelope" /><a
+            href="mailto:mail@mail.com">mail@mail.com</a
+          >
+        </div><div class="flex items-center justify-center mt-2 space-x-2">
+          <Icon class="w-4 h-4" name="uil:phone" /><a href="tel:+1 000-000-000"
+            >+1 000-000-000</a
+          >
+        </div>
+        <div class="flex justify-center mt-5">
+          <Link
+            href="contact"
+            class="hover:bg-gray-500 hover:text-white"
+            style="inverted">
+            Contact Form
+          </Link>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,133 @@
+---
+// @ts-ignore
+import mallet from "../assets/mallet.avif";
+import { Image } from "astro:assets";
+
+const icons = [
+  {
+    path1:
+      "m14 13-7.5 7.5c-.83.83-2.17.83-3 0 0 0 0 0 0 0a2.12 2.12 0 0 1 0-3L11 10",
+    path2: "m16 16 6-6",
+    path3: "m8 8 6-6",
+    path4: "m9 7 8 8",
+    path5: "m21 11-8-8",
+    title: "Criminal Law",
+    text: "We provide comprehensive legal services in all areas of criminal law.",
+  },
+  {
+    path1:
+      "M5 17h-2v-6l2-5h9l4 5h1a2 2 0 0 1 2 2v4h-2m-4 0h-6m-6 -6h15m-6 0v-5",
+    cx: "7",
+    cy: "17",
+    r: "2",
+    cx2: "17",
+    cy2: "17",
+    r2: "2",
+    title: "Car accident",
+    text: "Our team is experienced in handling a wide range of car accident cases.",
+  },
+  {
+    path1: "M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4",
+    title: "Inmigration",
+    text: "We offer legal advice and representation in all aspects of inmigration.",
+  },
+];
+
+const content = [
+  {
+    text: "Trusted Expertise: Our skilled attorneys have a proven track record and stay updated on legal developments for optimal representation. Client-Focused: Your concerns are our priority.",
+  },
+  {
+    text: "We tailor legal strategies to your specific needs, ensuring clear and transparent communication. Results-Driven Advocacy: Our commitment to achieving the best outcomes is evident in negotiations or court litigations.",
+  },
+  {
+    text: "Comprehensive Services: [Lawyer name] Law Firm offers a range of legal services. Explore our website to learn more about our team and practice areas. Contact us for a consultation to secure the representation you deserve. Your rights matter, and at [Lawyer name] Law Firm, we're here to defend them.",
+  },
+];
+---
+
+<div
+  class="mx-auto pb-28 mt-5 px-4 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 place-items-center"
+  data-id="9"
+  x-data="{ shown: false }"
+  x-intersect="shown = true">
+  {
+    icons.map((item) => (
+      <div
+        class="flex flex-col items-center text-center animate-fade-right animate-ease-out animate-delay-100"
+        data-id="10"
+        x-show="shown">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="h-12 w-12 mb-4"
+          data-id="11">
+          <circle cx={item.cx} cy={item.cy} r={item.r} />
+          <circle cx={item.cx2} cy={item.cy2} r={item.r2} />
+          <rect
+            width={item.rectw}
+            height={item.recth}
+            x={item.rectx}
+            y={item.recty}
+            rx={item.rectrx}
+            ry={item.rectry}
+          />
+          <path d={item.path1} />
+          <path d={item.path2} />
+          <path d={item.path3} />
+          <path d={item.path4} />
+          <path d={item.path5} />
+          <polyline points={item.points} />
+        </svg>
+        <h2 class="text-2xl font-bold" data-id="12">
+          {item.title}
+        </h2>
+        <p class="text-gray-600 dark:text-gray-600" data-id="13">
+          {item.text}
+        </p>
+      </div>
+    ))
+  }
+</div>
+
+<div
+  class="flex flex-wrap items-center justify-center"
+  x-data="{ shown: false }"
+  x-intersect="shown = true">
+  <Image
+    class={"malletImg w-1/3 animate-fade-left animate-ease-out animate-delay-300 rounded-xl object-cover"}
+    x-show="shown"
+    src={mallet}
+    alt={"mallet"}
+  />
+  <div
+    class="malletText w-3/6 ml-32 animate-fade-left animate-ease-out animate-delay-700"
+    x-show="shown">
+    <h1 class="text-2xl font-bold mb-5">Why choose [Lawyer name] Law Firm?</h1>
+    <div
+      class="text-lg text-gray-600 dark:text-gray-700 mb-3 text flex flex-col gap-3">
+      {content.map((item) => <p>{item.text}</p>)}
+    </div>
+  </div>
+</div>
+
+<style>
+  @media (max-width: 1024px) {
+    .malletImg {
+      width: 50%;
+    }
+    .malletText {
+      width: 100%;
+      margin-left: 0;
+      margin-top: 50px;
+      padding: 0 1rem;
+    }
+  }
+</style>

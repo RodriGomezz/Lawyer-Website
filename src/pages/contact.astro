@@ -1,0 +1,55 @@
+---
+import Contactform from "@components/contactform.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+import Layout from "@layouts/Layout.astro";
+import { Icon } from "astro-icon";
+---
+
+<Layout title="Contact">
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">Contact</Fragment>
+      <Fragment slot="desc">
+        Have something to say? We are here to help. Fill up the form or send
+        email or call phone.
+      </Fragment>
+    </Sectionhead>
+
+    <div class="flex flex-col gap-10">
+      <div>
+        <div class="mt-5">
+          <div
+            class="flex items-center justify-center mt-2 space-x-2 text-gray-600">
+            <Icon class="text-gray-400 w-4 h-4" name="uil:map-marker" />
+            <span>1825 SW Broadway, Portland, OR </span>
+          </div><div
+            class="flex items-center justify-center mt-2 space-x-2 text-gray-600">
+            <Icon class="text-gray-400 w-4 h-4" name="uil:envelope" /><a
+              href="mailto:jlozano@johnlozanolaw.com">mail@mail.com</a
+            >
+          </div><div
+            class="flex items-center justify-center mt-2 space-x-2 text-gray-600">
+            <Icon class="text-gray-400 w-4 h-4" name="uil:phone" /><a
+              href="tel:+1 214-366-9150">+1 000-000-000</a
+            >
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex justify-center items-center gap-10 max-[1024px]:flex-col">
+        <Contactform />
+        <div>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31628.949966959393!2d-122.67827360479008!3d45.51752775659748!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5495a0b1f80bb091%3A0x360ed363c9e63795!2sUniversidad%20Estatal%20de%20Portland!5e0!3m2!1ses-419!2suy!4v1712805449679!5m2!1ses-419!2suy"
+            class="min-[1024px]:w-96 max-[1024px]:max-w-96"
+            height="350"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </Container>
+</Layout>
