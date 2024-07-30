@@ -3,7 +3,7 @@ import Link from "@components/ui/link.astro";
 ---
 
 <main
-  class="grid lg:grid-cols-2 place-items-center pt-16 pb-8 md:pt-12 md:pb-24 h-screen">
+  class="grid lg:grid-cols-2 place-items-center pt-16 pb-8 px-10 lg:px-0 md:pt-12 md:pb-24 h-screen">
   <div class="containerImage h-5/6 absolute w-screen -z-10 top-0 mt-20">
     <img
       src="/justice.avif"
@@ -14,7 +14,7 @@ import Link from "@components/ui/link.astro";
     />
     <img
       src="/justiceMobile.avif"
-      class="min-[1024px]:hidden w-screen h-5/6 absolute -z-10 object-cover brightness-75 top-0 left-0 mt-20 lg:hidden"
+      class="w-screen h-5/6 absolute -z-10 object-cover brightness-75 top-0 left-0 mt-20 md:hidden"
       loading="lazy"
       decoding="async"
       alt="justiceImgMobile"
@@ -22,7 +22,7 @@ import Link from "@components/ui/link.astro";
   </div>
   <div class="text mt-20">
     <h1
-      class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter animate-fade-up animate-delay-300">
+      class="text-4xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter animate-fade-up animate-delay-300">
       Defender of Rights [Lawyer name] Law Firm Advocates for You
       <!--       
 Accessible and accommodating legal counsel
@@ -46,7 +46,7 @@ Legal solutions tailored to each client’s unique needs -->
 </main>
 
 <style>
-  @media (max-width: 1024px) {
+  @media (max-width: 787px) {
     .containerImage {
       height: 100vh;
       margin-top: 0;
